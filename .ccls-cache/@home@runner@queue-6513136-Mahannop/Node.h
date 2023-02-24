@@ -22,10 +22,9 @@ void enqueue(NodePtr * head, NodePtr* tail, int x){
   if(new_node){ 
      new_node->data = x; 
      new_node->nextPtr = NULL;
-     if(*head == NULL) *head = new_node;
-     else (*tail)->nextPtr = new_node;
-     *tail = new_node;
-     
+     if(*head == NULL) *head = new_node; //ไม่มีหางแถว ( มีแค่ตัวเดียว ) เอาไปต่อไม่ได้     
+    else (*tail)->nextPtr = new_node; //new_node ( ข้อมูลใหม่ ) เอาไปต่อหางแถว
+     *tail = new_node; //เปลี่ยนหางแถวเป็น new_node
     /* Finish enqueue*/
   }
 }
@@ -33,18 +32,17 @@ void enqueue(NodePtr * head, NodePtr* tail, int x){
 
 int dequeue(NodePtr* head, NodePtr* tail){
    NodePtr t=*head;
-   if(t) {
+   if(t) { //create t successfully ! 
    int value= t->data;
-   *head = t->nextPtr; 
+   *head = t->nextPtr;  //ขยับหัวแถวทุกรอบ t = *head->nextPtr
    /* Finish dequeue*/
-   if(*head == NULL) *tail = NULL; 
+   if(*head == NULL) *tail = NULL; //หัวแถวหมด หางแถวหมด 
+   free(t); 
    return value;
-   
   }
   
-   else printf("Empty queue");
-   
-  return 0;
+   else printf("Empty queue !\n");
+   return 0;
 }
 
 #endif
