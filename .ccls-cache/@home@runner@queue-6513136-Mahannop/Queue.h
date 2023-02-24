@@ -22,12 +22,12 @@ void enqueue_struct(Queue* q, int x){
 
 int dequeue_struct(Queue *q){
    NodePtr t=q->headPtr;
-   if(t) {
+   if(q->size>0 /* if(t) */) {
    int value= t->data;
    q->headPtr = t->nextPtr; 
    if(q->headPtr == NULL) q->tailPtr = NULL; 
-   free(t); 
    q->size--; 
+   free(t); 
    return value;
    //Finish Dequeue
    }

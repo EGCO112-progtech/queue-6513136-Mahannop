@@ -36,11 +36,9 @@ int main(int argc , char **argv) {
         if(strcmp(argv[i],"x")==0){
             x = dequeue_struct(&q);
             printf("dequeing %d\n",x);
-            q.size++; 
         }
         else {
            enqueue_struct(&q , atoi(argv[i]));
-           q.size--; 
         }
  }
   return 0;
