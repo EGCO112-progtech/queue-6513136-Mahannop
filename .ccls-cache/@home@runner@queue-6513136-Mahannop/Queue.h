@@ -18,7 +18,7 @@ void enqueue_struct(Queue* q, int num,int amount){
      q->tailPtr = new_node; 
      q->size++;
     //Finish enqueue 
-    printf("My order is : %d\n",num); 
+    printf("Your order is : %d\n",num); 
   }
 }
 
@@ -28,24 +28,24 @@ int dequeue_struct(Queue *q) {
    NodePtr t=q->headPtr;
    if(q->size>0 /* if(t) */) {
       switch(t->order_number) {
-        case 1: printf("Ramen\n");
+        case 1: printf("Your food is ** Ramen **\n");
         price = t->qty*100; 
         break;
-        case 2: printf("Somtum\n");
+        case 2: printf("Your food is ** Somtum **\n");
         price = t->qty*20; 
         break;
-        case 3: printf("Fried Chicken\n");
+        case 3: printf("Your food is ** Fried Chicken **\n");
         price = t->qty*50; 
         break;
         default: printf("No Food Left !");  }
 
-        printf("You have to pay : %d\n",price);
+        printf("You have to pay : %d THB\n",price);
         do{
           printf("ENTER YOUR CASH : ");
           scanf("%d",&cash); 
           if((cash-price)==0) break;
           else if((cash-price)>0) {
-            printf("Change is : %d\n",cash-price);
+            printf("Change is : %d THB\n",cash-price);
             break; 
           }
           else if((cash-price)<0) {
@@ -58,12 +58,18 @@ int dequeue_struct(Queue *q) {
    if(q->headPtr == NULL) q->tailPtr = NULL; 
    q->size--; 
    free(t); 
-   return price; 
+   return price;
+   //Finish Dequeue
    }
-   printf("Empty Queue !");
+   printf("Empty Queue !\n");
    return 0; 
 }
-
+void display() {
+    printf("=== WELCOME TO RESTAURANT ===\n");
+    printf("There are numbers of menu following this : \n"); 
+    printf("1) Ramen : 100 THB \n2) Papaya-Salad : 20 THB\n3) Fried Chicken : 50 THB\n");
+    printf("================================\n");
+ }
    //int price = t->order_number;
    //Finish Dequeue
 

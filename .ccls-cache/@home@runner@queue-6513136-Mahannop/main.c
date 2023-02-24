@@ -24,9 +24,6 @@ int main(int argc , char **argv) {
    q.tailPtr = NULL;
    q.size = 0; 
   //set value and number 
-   order Ramen;
-   order Somtum;
-   order Chicken;
    int price; 
 
 /* For struct Queue
@@ -46,9 +43,11 @@ int main(int argc , char **argv) {
         }
  }
   return 0; */
+  display();
+  
   for(i=1;i<argc;i++) {
         if(strcmp(argv[i],"x")==0) {
-            printf("Customer No : %d\n",custom);
+            printf("Customer Number : %d\n",custom);
             x = dequeue_struct(&q);
             custom++;
         }
@@ -65,9 +64,13 @@ int main(int argc , char **argv) {
       break;
     default: printf("There are %d ppl left in the queue !\n",q.size); 
   }
-    printf("Clearing Queue : "); 
-    while(q.size>0) dequeue_struct(&q); 
+    if(q.size==0) printf("Queue Already Left !\n");
+    else { 
+      printf("Clearing Queue : "); 
+      while(q.size>0) dequeue_struct(&q);  
+  }
+    printf("============= END OF RESTAURANT ==============\n");
   return 0;
   //54 x 8 3 x x 68 95 x 
-  //1 2 3 2 x 3 2 x
+  //Restaurant Queue : 1 2 3 2 x 3 2 x
 }
