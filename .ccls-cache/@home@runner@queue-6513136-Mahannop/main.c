@@ -65,6 +65,8 @@ int main(int argc , char **argv) {
       break;
     default: printf("There are %d ppl left in the queue !\n",q.size); 
   }
+    printf("Clearing Queue : "); 
+    while(q.size>0) dequeue_struct(&q); 
   return 0;
   //54 x 8 3 x x 68 95 x 
   //1 2 3 2 x 3 2 x

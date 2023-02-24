@@ -63,6 +63,7 @@ int dequeue_struct(Queue *q) {
    printf("Empty Queue !");
    return 0; 
 }
+
    //int price = t->order_number;
    //Finish Dequeue
 
